@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="domain.Adres"%>
-<%@page import="repository.DummyDB"%>
-<%@page import="domain.Customer"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -16,17 +14,15 @@
         Nazwa użytkownika: <%=session.getAttribute("login")%><br/>
         Email: <%=session.getAttribute("email")%><br/>
         Status: <%=session.getAttribute("privlage")%><br/>
-        Adresy: 
-        
-        
-        <a href="ShowTheAdres">Adres</a>
         
         <p><a href="premium.jsp">Strona premium</a></p>
         
         <p><a href="admin.jsp">Panel administracyjny</a></p>
         
+        <p><a href="registration.jsp">Rejestracja</a></p>
+        <p><a href="login.jsp">Logowanie</a></p>
+        
         <p><a href="Exit">Wyloguj mnie</a></p>
-        
-        
+    
     </body>
 </html>

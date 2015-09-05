@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import repository.DummyDB;
 
-//@WebFilter(filterName = "Admin", urlPatterns = {"/Privlage", "/permissions.jsp", "/listOfCustomers.jsp"})
+@WebFilter(filterName = "Admin", urlPatterns = {"/Privlage", "/permissions.jsp", "/list.jsp", "/admin.jsp"})
 public class Admin implements Filter  
 {
     FilterConfig filterConfig = null;
@@ -37,23 +37,23 @@ public class Admin implements Filter
         
         ServletContext stc = req.getServletContext();
         
-        DummyDB db = (DummyDB)stc.getAttribute("listofcustomers");
+        DummyDB db = (DummyDB)stc.getAttribute("customers");
         
-        Customer c = null;
+       Customer c = null;
         
         for(Customer customer : db.customers)
         {
             if(customer.getLogin().equals(session.getAttribute("login")))
-                c = customer;
+                 c = customer;
         }
         
-        if(c.getPrivlage()==Privlage.ADMIN)
-        {
-            chain.doFilter(req, res);
+        if(c==null || c.getPrivlage()!=Privlage.ADMIN)
+        {            
+            req.getRequestDispatcher("lackOfAccess.jsp").forward(req, res);
         }
         else
         {
-            req.getRequestDispatcher("lackOfAccess.jsp").forward(req, res);
+            chain.doFilter(req, res);
         }
     }
 

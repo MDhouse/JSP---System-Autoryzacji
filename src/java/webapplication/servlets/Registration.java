@@ -2,6 +2,7 @@ package webapplication.servlets;
 
 import domain.Customer;
 import domain.CustomerBuilder;
+import domain.Privlage;
 import java.io.IOException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -32,6 +33,13 @@ public class Registration extends HttpServlet
         Customer c = null;
         
         DummyDB db = (DummyDB) stc.getAttribute("customers");
+        
+        Customer admin = new Customer();
+        admin.setLogin("admin");
+        admin.setPassword("admin");
+        admin.setEmail("admin@admin.pl");
+        admin.setPrivlage(Privlage.ADMIN);
+        db.customers.add(admin);
         
         CheckDate cd = new CheckDate(request);
         

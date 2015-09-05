@@ -19,6 +19,10 @@
         
         <p><a href="admin.jsp">Panel administracyjny</a></p>
         
+        <p><a href="registration.jsp">Rejestracja</a></p>
+        
+        <p><a href="login.jsp">Logowanie</a></p>
+        
         <p><a href="Exit">Wyloguj mnie</a></p>
                 
     </body>

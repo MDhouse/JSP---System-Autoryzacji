@@ -46,7 +46,7 @@ public class ShowTheAdres extends HttpServlet
             {
                 if(a.getTypeOfAdres().equals("checkIn"))
                 {
-                    request.getRequestDispatcher("profileOfCustomer.jsp").forward(request, response);
+                   
                     System.out.println("<p>Adres zameldowania:<br/>"+a.getProvince()+"<br/>"+a.getPostalCode()+" "+a.getCity()+"<br/>"+a.getStreetName()+" "+a.getHouseNumber()+"</p>");
                     System.out.println("<br/><a href=adres.jsp>Zmień</a>");
                     System.out.println("<a href=DeleteTheAdres?customer"+a.getCustomer()+"&typeofadres="+a.getTypeOfAdres()+">Usuń adres</a>");
@@ -57,14 +57,14 @@ public class ShowTheAdres extends HttpServlet
                     System.out.println("<p>Adres korenspodencyjny:<br/>"+a.getProvince()+"<br/>"+a.getPostalCode()+" "+a.getCity()+"<br/>"+a.getStreetName()+" "+a.getHouseNumber()+"</p>");
                     System.out.println("<br/><a href=adres.jsp>Zmień</a>");
                     System.out.println("<a href=DeleteTheAdres?customer"+a.getCustomer()+"&typeofadres="+a.getTypeOfAdres()+">Usuń adres</a>");
-                    request.getRequestDispatcher("profileOfCustomer.jsp").forward(request, response);
+                  
                 }
                 else
                 {
                     System.out.println("<p>Adres pracy:<br/>"+a.getProvince()+"<br/>"+a.getPostalCode()+" "+a.getCity()+"<br/>"+a.getStreetName()+" "+a.getHouseNumber()+"</p>");
                     System.out.println("<br/><a href=adres.jsp>Zmień</a>");
                     System.out.println("<a href=DeleteTheAdres?customer"+a.getCustomer()+"&typeofadres="+a.getTypeOfAdres()+">Usuń adres</a>");
-                    request.getRequestDispatcher("profileOfCustomer.jsp").forward(request, response);
+                 
                 }
             }
         }       

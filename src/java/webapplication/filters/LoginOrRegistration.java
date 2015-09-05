@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//@WebFilter(filterName = "LoginOrRegistration", urlPatterns = {"/login.jsp", "/registration.jsp"})
+@WebFilter(filterName = "LoginOrRegistration", urlPatterns = {"/login.jsp", "/registration.jsp", "/Registration", "/Login"})
 public class LoginOrRegistration implements Filter 
 {
     FilterConfig filterConfig = null;
@@ -35,10 +35,16 @@ public class LoginOrRegistration implements Filter
         HttpSession session = req.getSession();
 		
 	if(session.getAttribute("login")!=null)
-        {
-            chain.doFilter(req, res);
+        {   
             req.getRequestDispatcher("profileOfCustomers.jsp").forward(req, res);
         }
+        else
+        {
+            chain.doFilter(req, res);
+            
+            
+        }
+        
     }
 
     public void destroy() 

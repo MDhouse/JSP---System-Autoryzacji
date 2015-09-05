@@ -13,6 +13,9 @@ public class CustomerBuilder implements IEntityBuilder<Customer>
         c.setLogin(request.getParameter("login"));
         c.setPassword(request.getParameter("password"));
         c.setEmail(request.getParameter("email"));
+        c.setPrivlage(Privlage.REGULAR);
+        
+        
         
         if(request.getParameter("login").equals("admin") && request.getParameter("password").equals("admin"))
         {

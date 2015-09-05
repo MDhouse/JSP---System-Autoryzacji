@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import repository.DummyDB;
 
-//@WebFilter(filterName = "Premium", urlPatterns = {"/premium.jsp"})
+@WebFilter(filterName = "Premium", urlPatterns = {"/premium.jsp"})
 public class Premium implements Filter
 {  
     FilterConfig filterConfig = null;
@@ -26,6 +26,7 @@ public class Premium implements Filter
         this.filterConfig = filterConfig;
     }
 
+    
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException 
     {
         HttpServletRequest req = (HttpServletRequest)request; 
@@ -35,7 +36,7 @@ public class Premium implements Filter
         
         ServletContext stc = req.getServletContext();
         
-        DummyDB db = (DummyDB)stc.getAttribute("listofcustomers");
+        DummyDB db = (DummyDB)stc.getAttribute("customers");
         
         Customer c = null;
         
@@ -45,9 +46,10 @@ public class Premium implements Filter
                 c = customer;
         }
         
-        if(c.getPrivlage()==Privlage.ADMIN || c.getPrivlage()==Privlage.PREMIUM)
+        if(c.getPrivlage().equals(Privlage.ADMIN)|| c.getPrivlage().equals(Privlage.PREMIUM))
         {
             chain.doFilter(req, res);
+            //req.getRequestDispatcher("lackOfAccess.jsp").forward(req, res);           
         }
         else
         {

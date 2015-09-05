@@ -14,14 +14,14 @@
             </table><br>
  	<input type="submit" value="Zmień uprawnienia">	
               
-        <p><a href="listOfCustomers.jsp">Lista użytkowników</a></p>
+        <p><a href="list.jsp">Lista użytkowników</a></p>
         <p><br/><a href="profileOfCustomers.jsp">Powrót do profilu</a></p>
         </form>
         
         <h4><font color=red>
 	<%
 		if(request.getAttribute("Permissions") != null)
-			out.println(request.getAttribute("noSuchUser"));
+			out.println(request.getAttribute("Permissions"));
 		if(request.getAttribute("DoesNotExist") != null)
 			out.println(request.getAttribute("DoesNotExist"));
 	%>

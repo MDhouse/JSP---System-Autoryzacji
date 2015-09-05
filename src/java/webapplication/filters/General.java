@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-//@WebFilter(filterName = "General", urlPatterns = {"/Registration", "/Exit","/exit.jsp","/listOfCustomers.jsp", "/profileOfCustomers.jsp"})
+@WebFilter(filterName = "General", urlPatterns = { "/Exit","/exit.jsp","/list.jsp", "/profileOfCustomers.jsp"})
 public class General implements Filter 
 {
     

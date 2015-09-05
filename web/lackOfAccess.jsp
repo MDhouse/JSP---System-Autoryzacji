@@ -8,6 +8,6 @@
     <body>
         <h1>Strona główna</h1>
         <h3>Brak dostępu</h3>
-        Musisz powrócić do <p><a href="index.jsp">strony głównej</a></p>
+        Musisz powrócić do <p><a href="profileOfCustomers.jsp">profilu</a></p>
     </body>
 </html>
